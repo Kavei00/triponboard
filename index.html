@@ -1,131 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TripOnboard - Giriş</title>
+  <title>TripOnboard - Şifreli Giriş</title>
 
-  <!-- Google Font: Inter -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet" />
-
-  <!-- FontAwesome for location pin -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <!-- Google Fonts: Montserrat Bold -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet" />
 
   <style>
-    body {
-      margin: 0;
-      padding: 20px;
-      font-family: 'Inter', sans-serif;
-      background-color: #fff;
+    html, body {
+      margin: 0; padding: 0;
+      height: 100%; width: 100%;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      min-height: 100vh;
+      background-color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      user-select: none;
     }
-
-    #logo-text {
-      font-size: 48px;
-      font-weight: 400;
-      color: #284BC4;
-      letter-spacing: 1px;
-      position: relative;
-      margin-bottom: 40px;
-    }
-
-    .i-letter {
-      position: relative;
-      display: inline-block;
-    }
-
-    .i-letter::before {
-      content: '';
-      position: absolute;
-      top: -6px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 10px;
-      height: 2px;
-      background-color: #284BC4;
-    }
-
-    .i-letter::after {
-      font-family: "Font Awesome 5 Free";
-      font-weight: 900;
-      content: '\f041'; /* location pin */
-      position: absolute;
-      top: -40px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 33px;
-      color: #24BB48;
+    #logo-img {
+      max-width: 400px;
+      width: 90vw;
+      height: auto;
+      user-select: none;
+      -webkit-user-drag: none;
       pointer-events: none;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      width: 300px;
-      gap: 15px;
-    }
-
-    label {
-      font-weight: 600;
-      color: #333;
-    }
-
-    input[type="password"] {
-      padding: 10px;
-      font-size: 16px;
-      border: 2px solid #284BC4;
-      border-radius: 6px;
-      outline: none;
-      transition: border-color 0.3s ease;
-    }
-
-    input[type="password"]:focus {
-      border-color: #24BB48;
-    }
-
-    button {
-      background-color: #284BC4;
-      color: white;
-      font-weight: 600;
-      padding: 12px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #24BB48;
+      image-rendering: crisp-edges;
+      display: none; /* İlk başta gizli */
     }
   </style>
 </head>
 <body>
 
-  <h1 id="logo-text">
-    Tr<span class="i-letter">i</span>pOnboard
-  </h1>
-
-  <form id="login-form">
-    <label for="password">Şifre:</label>
-    <input type="password" id="password" name="password" placeholder="Şifrenizi girin" value="zuzu123" required />
-    <button type="submit">Giriş Yap</button>
-  </form>
+  <img id="logo-img" src="logo.png" alt="TripOnboard Logo" />
 
   <script>
-    const form = document.getElementById('login-form');
-    form.addEventListener('submit', function(event) {
-      event.preventDefault();
-      const passwordInput = document.getElementById('password').value;
-      if (passwordInput === 'zuzu123') {
-        alert('Giriş başarılı! 🎉');
-        // Buraya giriş sonrası yönlendirme veya işlem ekleyebilirsin
-      } else {
-        alert('Şifre yanlış! Lütfen tekrar deneyin.');
+    const correctPassword = "zuzu123";
+
+    function askPassword() {
+      const input = prompt("Lütfen şifreyi giriniz:");
+      if (input === null) {
+        // Cancel'a basılırsa sayfadan çıkma uyarısı
+        alert("Giriş yapılmadı. Sayfayı kullanamazsınız.");
+        document.body.innerHTML = "<h2>Giriş yapılmadı.</h2>";
+        return;
       }
-    });
+      if (input === correctPassword) {
+        // Şifre doğruysa logoyu göster
+        document.getElementById('logo-img').style.display = "block";
+      } else {
+        alert("Şifre yanlış! Lütfen tekrar deneyin.");
+        askPassword(); // Tekrar sor
+      }
+    }
+
+    askPassword();
   </script>
 
 </body>
