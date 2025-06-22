@@ -1,40 +1,72 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>TripOnboard - Geliştirme Aşamasında</title>
-  <meta name="robots" content="noindex, nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TripOnboard</title>
+
+  <!-- Google Font: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet" />
+
+  <!-- Location Pin için FontAwesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
   <style>
     body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin-top: 100px;
-      background-color: #f0f2f5;
-      color: #333;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
-    h1 {
-      color: #0077cc;
+
+    #logo-text {
+      font-size: 48px;
+      font-weight: 400;
+      color: #284BC4;
+      letter-spacing: 1px;
+      position: relative;
+    }
+
+    .i-letter {
+      position: relative;
+      display: inline-block;
+    }
+
+    /* Düz çizgi */
+    .i-letter::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 10px;
+      height: 2px;
+      background-color: #284BC4;
+    }
+
+    /* Pin ikonu */
+    .i-letter::after {
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      content: '\f041'; /* Unicode for FontAwesome location pin */
+      position: absolute;
+      top: -24px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 16px;
+      color: #24BB48;
     }
   </style>
 </head>
 <body>
-  <img src="Triponboard%20cerceve%20kucuk.jpg" alt="TripOnBoard Logo" style="max-width: 200px; height: auto; border: none;">
-  <h1>TripOnboard</h1>
-  <p id="welcome-message" style="display:none;">Hoş geldin! Geliştirme çalışmaları devam ediyor.</p>
-  <p id="denied-message" style="display:none; color:red;">Yanlış şifre! Erişim reddedildi.</p>
 
-  <script>
-    const correctPassword = "zuzu123";
-    const userPassword = prompt("Siteye erişmek için şifre girin:");
+  <h1 id="logo-text">
+    Tr<span class="i-letter">i</span>pOnboard
+  </h1>
 
-    if (userPassword === correctPassword) {
-      document.getElementById("welcome-message").style.display = "block";
-    } else {
-      document.getElementById("denied-message").style.display = "block";
-      // İçerikleri gizleyelim
-      document.querySelector("img").style.display = "none";
-      document.querySelector("h1").style.display = "none";
-    }
-  </script>
 </body>
 </html>
