@@ -18,17 +18,22 @@
   </style>
 </head>
 <body>
+  <img src="Triponboard%20300dpi%20591.jpg.jpg" alt="TripOnBoard Logo" style="max-width: 200px; height: auto;">
   <h1>TriponBoard</h1>
-  <p>Bu site şu anda geliştirme aşamasındadır.</p>
+  <p id="welcome-message" style="display:none;">Hoş geldin! Geliştirme çalışmaları devam ediyor.</p>
+  <p id="denied-message" style="display:none; color:red;">Yanlış şifre! Erişim reddedildi.</p>
 
   <script>
-    const correctPassword = "zuzu123";  // Buraya istediğin şifreyi yazabilirsin
+    const correctPassword = "zuzu123";
     const userPassword = prompt("Siteye erişmek için şifre girin:");
 
     if (userPassword === correctPassword) {
-      document.write("<p>Hoş geldin! Geliştirme çalışmaları devam ediyor.</p>");
+      document.getElementById("welcome-message").style.display = "block";
     } else {
-      document.body.innerHTML = "<h2>Yanlış şifre! Erişim reddedildi.</h2>";
+      document.getElementById("denied-message").style.display = "block";
+      // İçerikleri gizleyelim
+      document.querySelector("img").style.display = "none";
+      document.querySelector("h1").style.display = "none";
     }
   </script>
 </body>
