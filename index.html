@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TrıpOnboard</title>
+  <title>TripOnboard - Giriş</title>
 
   <!-- Google Font: Inter -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet" />
 
-  <!-- Location Pin için FontAwesome -->
+  <!-- FontAwesome for location pin -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
   <style>
     body {
       margin: 0;
-      padding: 0;
+      padding: 20px;
       font-family: 'Inter', sans-serif;
-      background-color: #ffffff;
+      background-color: #fff;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
     }
 
     #logo-text {
@@ -29,6 +29,7 @@
       color: #284BC4;
       letter-spacing: 1px;
       position: relative;
+      margin-bottom: 40px;
     }
 
     .i-letter {
@@ -36,7 +37,6 @@
       display: inline-block;
     }
 
-    /* Düz çizgi */
     .i-letter::before {
       content: '';
       position: absolute;
@@ -48,17 +48,57 @@
       background-color: #284BC4;
     }
 
-    /* Pin ikonu */
     .i-letter::after {
       font-family: "Font Awesome 5 Free";
       font-weight: 900;
-      content: '\f041'; /* Unicode for FontAwesome location pin */
+      content: '\f041'; /* location pin */
       position: absolute;
-      top: -24px;
+      top: -40px;
       left: 50%;
       transform: translateX(-50%);
-      font-size: 16px;
+      font-size: 33px;
       color: #24BB48;
+      pointer-events: none;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 300px;
+      gap: 15px;
+    }
+
+    label {
+      font-weight: 600;
+      color: #333;
+    }
+
+    input[type="password"] {
+      padding: 10px;
+      font-size: 16px;
+      border: 2px solid #284BC4;
+      border-radius: 6px;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    input[type="password"]:focus {
+      border-color: #24BB48;
+    }
+
+    button {
+      background-color: #284BC4;
+      color: white;
+      font-weight: 600;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #24BB48;
     }
   </style>
 </head>
@@ -67,6 +107,26 @@
   <h1 id="logo-text">
     Tr<span class="i-letter">i</span>pOnboard
   </h1>
+
+  <form id="login-form">
+    <label for="password">Şifre:</label>
+    <input type="password" id="password" name="password" placeholder="Şifrenizi girin" value="zuzu123" required />
+    <button type="submit">Giriş Yap</button>
+  </form>
+
+  <script>
+    const form = document.getElementById('login-form');
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const passwordInput = document.getElementById('password').value;
+      if (passwordInput === 'zuzu123') {
+        alert('Giriş başarılı! 🎉');
+        // Buraya giriş sonrası yönlendirme veya işlem ekleyebilirsin
+      } else {
+        alert('Şifre yanlış! Lütfen tekrar deneyin.');
+      }
+    });
+  </script>
 
 </body>
 </html>
