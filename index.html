@@ -1,54 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Triponboard - Flight meta search and travel inspiration platform." />
-  <title>Triponboard</title>
+  <title>TriponBoard - Geliştirme Aşamasında</title>
+  <meta name="robots" content="noindex, nofollow" />
   <style>
     body {
-      margin: 0;
-      font-family: "Segoe UI", sans-serif;
-      background: #f5f7fa;
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-    }
-    header {
+      font-family: Arial, sans-serif;
       text-align: center;
+      margin-top: 100px;
+      background-color: #f0f2f5;
+      color: #333;
     }
     h1 {
-      font-size: 3rem;
-      color: #004080;
-      margin-bottom: 0.5rem;
-    }
-    p {
-      font-size: 1.2rem;
-      color: #666;
-    }
-    .search-box {
-      margin-top: 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    input {
-      padding: 10px;
-      width: 300px;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-    .coming-soon {
-      margin-top: 1.5rem;
-      font-style: italic;
-      color: #999;
+      color: #0077cc;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h
+  <h1>TriponBoard</h1>
+  <p>Bu site şu anda geliştirme aşamasındadır.</p>
+
+  <script>
+    const correctPassword = "zuzu123";  // Buraya istediğin şifreyi yazabilirsin
+    const userPassword = prompt("Siteye erişmek için şifre girin:");
+
+    if (userPassword === correctPassword) {
+      document.write("<p>Hoş geldin! Geliştirme çalışmaları devam ediyor.</p>");
+    } else {
+      document.body.innerHTML = "<h2>Yanlış şifre! Erişim reddedildi.</h2>";
+    }
+  </script>
+</body>
+</html>
